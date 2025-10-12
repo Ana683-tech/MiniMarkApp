@@ -81,7 +81,7 @@ fun RegisterComposeView(
                     ) { valueChange ->
                         //add input value
                     }
-                    Spacer(modifier = Modifier.height(16.dp))
+                    Spacer(modifier = Modifier.width(16.dp))
                     InputTextFieldComposeView(
                         modifier = Modifier.weight(1f),
                         label = "Last Name",
