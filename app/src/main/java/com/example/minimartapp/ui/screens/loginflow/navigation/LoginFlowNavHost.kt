@@ -14,7 +14,9 @@ fun LoginFlowNavHost () {
 
     NavHost(navController = navcontroller, startDestination = DestinationLogin){
         composable <DestinationLogin> {
-            LoginComposeView(navcontroller)
+            LoginComposeView{
+                navcontroller.navigate(DestinationRegister)
+            }
         }
 
         composable <DestinationRegister> {

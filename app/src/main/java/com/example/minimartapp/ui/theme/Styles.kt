@@ -1,0 +1,73 @@
+package com.example.minimartapp.ui.theme
+
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
+
+
+object Styles {
+
+    val textStyleRobotoMediumSp12 = TextStyle(
+        fontSize = 12.sp,
+        lineHeight = 16.sp,
+        fontFamily = robotoFontFamily,
+        fontWeight = FontWeight.Medium
+    )
+
+    val textStyleRobotoBoldSp24 = TextStyle(
+        fontSize = 24.sp,
+        lineHeight = 16.sp,
+        fontFamily = robotoFontFamily,
+        fontWeight = FontWeight.Bold
+    )
+
+    val textStyleRobotoRegularSp16 = TextStyle(
+        fontSize = 16.sp,
+        lineHeight = 16.sp,
+        fontFamily = robotoFontFamily,
+        fontWeight = FontWeight.Normal
+    )
+
+    val textStyleRobotoMediumsp16 = TextStyle(
+        fontSize = 16.sp,
+        lineHeight = 16.sp,
+        fontFamily = robotoFontFamily,
+        fontWeight = FontWeight.Medium
+    )
+
+
+    //styles button
+    val PrimaryButtonStyle = TextStyle(
+        fontSize = 18.sp,
+        lineHeight = 16.sp,
+        fontFamily = robotoFontFamily,
+        fontWeight = FontWeight.Bold,
+        color = Color.White
+    )
+
+    val SecondaryButtonStyle = TextStyle(
+        fontSize = 18.sp,
+        lineHeight = 16.sp,
+        fontFamily = robotoFontFamily,
+        fontWeight = FontWeight.Bold,
+        color = Color.Black
+    )
+
+    val TextStyleRobotoRegularSp14 = TextStyle(
+        fontSize = 18.sp,
+        lineHeight = 16.sp,
+        fontFamily = robotoFontFamily,
+        fontWeight = FontWeight.Normal,
+        color = Color.Black
+    )
+
+    val TextStyleRobotoRMediumSp14 = TextStyle(
+        fontSize = 18.sp,
+        lineHeight = 16.sp,
+        fontFamily = robotoFontFamily,
+        fontWeight = FontWeight.Medium,
+        color = Color.Black
+    )
+
+}

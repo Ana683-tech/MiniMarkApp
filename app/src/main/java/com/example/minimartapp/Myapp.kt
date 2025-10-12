@@ -5,5 +5,5 @@ import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
 class Myapp: Application() {
-    //inicializa hilt que extiende de aplicacion :
+    //inicializa hilt que extiende la aplicacion :
 }
