@@ -25,9 +25,11 @@ class LoginActivity : ComponentActivity() {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
                 ) {
-                    Surface(modifier = Modifier
-                        .fillMaxSize()
-                        .padding(it)) {
+                    Surface(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(it)
+                    ) {
                         LoginFlowNavHost()
                     }
                 }

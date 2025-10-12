@@ -17,6 +17,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -25,7 +27,6 @@ import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -34,9 +35,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.minimartapp.R
 import com.example.minimartapp.ui.theme.DpSizes.dp4
@@ -45,6 +46,8 @@ import com.example.minimartapp.ui.theme.Styles.PrimaryButtonStyle
 import com.example.minimartapp.ui.theme.Styles.SecondaryButtonStyle
 import com.example.minimartapp.ui.theme.Styles.textStyleRobotoMediumSp12
 import com.example.minimartapp.ui.theme.Styles.textStyleRobotoMediumsp16
+import com.example.minimartapp.ui.theme.Styles.textStyleRobotoRegularSp10
+import com.example.minimartapp.ui.theme.Styles.textStyleRobotoSp12
 
 
 sealed class TypesButtons {
@@ -55,7 +58,7 @@ sealed class TypesButtons {
 
 @Composable
 fun TopBarComposeView(
-    titulo: String, onClickBack: (() -> Unit)? = null //para y a su vez una funcion
+    titulo: String, onClickBack: (() -> Unit)? = null //parametro y a su vez una funcion
 ) {
     Row(
         modifier = Modifier
@@ -92,19 +95,24 @@ fun TopBarComposeView(
 
 @Composable
 fun InputTextFieldComposeView(
+    keyboardType: KeyboardType = KeyboardType.Text,
+    modifier: Modifier,
     label: String,
     placeholder: String,
     isPassword: Boolean = false,
     value: String,
     onValueChange: (String) -> Unit
 ) {
-    Column(modifier = Modifier.fillMaxWidth()) {
+    Column(modifier = modifier) {
         Text(label, style = textStyleRobotoMediumsp16)
         Spacer(modifier = Modifier.height(8.dp))
 
         var passwordVisible by rememberSaveable { mutableStateOf(false) }
 
         TextField(
+            keyboardOptions = KeyboardOptions(
+                keyboardType = keyboardType
+            ),
             value = value,
             onValueChange = { onValueChange(it) },
             modifier = Modifier.fillMaxWidth(),
@@ -148,15 +156,19 @@ fun ButtonComposeView(
 ) {
     Box(
         modifier = Modifier
+            .clip(RoundedCornerShape(8.dp))
             .fillMaxWidth()
-            .clickable(onClick = {onClick.invoke()}, enabled = isEnable)
+            .clickable(onClick = { onClick.invoke() }, enabled = isEnable)
             .height(56.dp)
             .border(
                 width = 1.dp,
                 shape = RoundedCornerShape(8.dp),
                 color = getBorderButton(typesButtons)
             )
-            .background(getBackgroundButton(typesButtons,isEnable), shape = RoundedCornerShape(8.dp))
+            .background(
+                getBackgroundButton(typesButtons, isEnable),
+                shape = RoundedCornerShape(8.dp)
+            )
     ) {
         Row(
             modifier = Modifier
@@ -174,7 +186,7 @@ fun ButtonComposeView(
     }
 }
 
-private fun getBackgroundButton(typesButtons: TypesButtons,isEnable: Boolean): Color {
+private fun getBackgroundButton(typesButtons: TypesButtons, isEnable: Boolean): Color {
     return when (typesButtons) {
         TypesButtons.Primary -> {
             if (isEnable) Color(0xFF64B5F6)
@@ -199,5 +211,44 @@ private fun getBorderButton(typesButtons: TypesButtons): Color {
     return when (typesButtons) {
         TypesButtons.Primary -> Color.Transparent
         TypesButtons.Secondary -> Color.LightGray
+    }
+}
+
+@Composable
+fun PasswordValidationComposeView(isValid: Boolean) {
+    Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+        Icon(
+            painter = painterResource(R.drawable.ic_check),
+            null,
+            tint = getValidPasswordColor(isValid)
+        )
+        Text(
+            "At least 8 characters",
+            style = textStyleRobotoRegularSp10,
+            color = getValidPasswordColor(isValid)
+        )
+    }
+}
+
+private fun getValidPasswordColor(isValid: Boolean): Color {
+    return if (isValid) Color(0xFF64B5F6)
+    else Color(0XFF4A4A4A)
+}
+
+@Composable
+fun DividerComposeView() {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.Center
+    ) {
+
+        HorizontalDivider(thickness = 1.dp, modifier = Modifier.weight(1f))
+        Text(
+            "Or Continue With",
+            style = textStyleRobotoSp12,
+            modifier = Modifier.padding(horizontal = 2.dp)
+        )
+        HorizontalDivider(thickness = 1.dp, modifier = Modifier.weight(1f))
     }
 }

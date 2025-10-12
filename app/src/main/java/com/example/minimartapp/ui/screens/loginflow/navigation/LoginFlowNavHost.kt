@@ -8,19 +8,21 @@ import com.example.minimartapp.ui.screens.loginflow.login.LoginComposeView
 import com.example.minimartapp.ui.screens.loginflow.register.RegisterComposeView
 
 @Composable
-fun LoginFlowNavHost () {
-    val  navcontroller = rememberNavController()
+fun LoginFlowNavHost() {
+    val navcontroller = rememberNavController()
 
 
-    NavHost(navController = navcontroller, startDestination = DestinationLogin){
-        composable <DestinationLogin> {
-            LoginComposeView{
+    NavHost(navController = navcontroller, startDestination = DestinationLogin) {
+        composable<DestinationLogin> {
+            LoginComposeView {
                 navcontroller.navigate(DestinationRegister)
             }
         }
 
-        composable <DestinationRegister> {
-            RegisterComposeView()
+        composable<DestinationRegister> {
+            RegisterComposeView {
+                navcontroller.popBackStack()
+            }
         }
     }
 }

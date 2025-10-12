@@ -70,4 +70,17 @@ object Styles {
         color = Color.Black
     )
 
+    val textStyleRobotoRegularSp10 = TextStyle(
+        fontSize = 10.sp,
+        lineHeight = 16.sp,
+        fontFamily = robotoFontFamily,
+        fontWeight = FontWeight.Normal
+    )
+
+    val textStyleRobotoSp12 = TextStyle(
+        fontSize = 12.sp,
+        lineHeight = 16.sp,
+        fontFamily = robotoFontFamily,
+        fontWeight = FontWeight.Light
+    )
 }
