@@ -236,7 +236,7 @@ private fun getValidPasswordColor(isValid: Boolean): Color {
 }
 
 @Composable
-fun DividerComposeView() {
+fun DividerComposeView(text: String) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,

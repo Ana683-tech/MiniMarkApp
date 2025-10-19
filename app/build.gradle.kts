@@ -55,6 +55,10 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -72,4 +76,11 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.kotlinx.seralization.json)
     implementation(libs.androidx.hilt.navigation.compose)
+
+    //depdencia de coil
+    implementation("io.coil-kt.coil3:coil-compose:3.3.0")
+
+    //dependencia de constrain Layoud
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.1.1")
+
 }

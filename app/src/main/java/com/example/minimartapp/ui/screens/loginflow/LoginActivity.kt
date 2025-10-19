@@ -11,7 +11,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.example.minimartapp.ui.screens.loginflow.navigation.LoginFlowNavHost
 import com.example.minimartapp.ui.theme.MiniMartAppTheme
-import com.example.minimartapp.ui.widgets.TopBarComposeView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

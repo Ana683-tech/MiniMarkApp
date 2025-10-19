@@ -7,3 +7,9 @@ object DestinationLogin
 
 @Serializable
 object DestinationRegister
+
+@Serializable
+object DestinationUnboarding
+
+
+

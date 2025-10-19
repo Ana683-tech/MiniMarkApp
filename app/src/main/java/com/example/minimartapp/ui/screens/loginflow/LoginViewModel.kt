@@ -10,7 +10,7 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor() : ViewModel() {
 
-    var emailLoginInput by mutableStateOf("")
+    var nameLoginInput by mutableStateOf("")
     var passwordLoginInput by mutableStateOf("")
     var checkBoxIsCheck by mutableStateOf(false)
 

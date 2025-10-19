@@ -5,22 +5,44 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.minimartapp.ui.screens.loginflow.login.LoginComposeView
-import com.example.minimartapp.ui.screens.loginflow.register.RegisterComposeView
+import com.example.minimartapp.ui.screens.loginflow.RegisterFlow.register.RegisterComposeView
+import com.example.minimartapp.ui.screens.loginflow.unboarding.UnboardingComposeView
 
 @Composable
 fun LoginFlowNavHost() {
     val navcontroller = rememberNavController()
 
 
-    NavHost(navController = navcontroller, startDestination = DestinationLogin) {
+    NavHost(navController = navcontroller, startDestination = DestinationUnboarding) {
+        composable<DestinationUnboarding> {
+            UnboardingComposeView(
+                onNavigateLogin = {
+                    navcontroller.navigate(DestinationLogin)
+                },
+                onNavigateRegister = {
+                    navcontroller.navigate(DestinationRegister)
+                }
+
+            )
+        }
+
         composable<DestinationLogin> {
-            LoginComposeView {
-                navcontroller.navigate(DestinationRegister)
-            }
+            LoginComposeView (
+                onNavigateRegister = {
+                    navcontroller.navigate(DestinationRegister)
+                },
+                onNavigateBack = {
+                    navcontroller.popBackStack()
+                }
+            )
         }
 
         composable<DestinationRegister> {
-            RegisterComposeView {
+            RegisterComposeView(
+                onNavigateLogin = {
+                    navcontroller.navigate(DestinationLogin)
+                }
+            ) {
                 navcontroller.popBackStack()
             }
         }
