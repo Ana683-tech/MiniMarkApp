@@ -4,9 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.minimartapp.ui.screens.loginflow.login.LoginComposeView
 import com.example.minimartapp.ui.screens.loginflow.RegisterFlow.register.RegisterComposeView
-import com.example.minimartapp.ui.screens.loginflow.unboarding.UnboardingComposeView
+import com.example.minimartapp.ui.screens.loginflow.login.LoginComposeView
+import com.example.minimartapp.ui.screens.loginflow.unboardingComposeView.Unboarding
 
 @Composable
 fun LoginFlowNavHost() {
@@ -15,7 +15,7 @@ fun LoginFlowNavHost() {
 
     NavHost(navController = navcontroller, startDestination = DestinationUnboarding) {
         composable<DestinationUnboarding> {
-            UnboardingComposeView(
+            Unboarding(
                 onNavigateLogin = {
                     navcontroller.navigate(DestinationLogin)
                 },

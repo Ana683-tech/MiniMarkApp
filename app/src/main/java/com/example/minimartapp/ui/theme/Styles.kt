@@ -97,4 +97,18 @@ object Styles {
         fontFamily = robotoFontFamily,
         fontWeight = FontWeight.Bold
     )
+
+    val textStyleRobotoMediumSp35 = TextStyle(
+        fontSize = 35.sp,
+        lineHeight = 16.sp,
+        fontFamily = robotoFontFamily,
+        fontWeight = FontWeight.Medium
+    )
+
+    val textStyleRobotoRegularSp40 = TextStyle(
+        fontSize = 40.sp,
+        lineHeight = 16.sp,
+        fontFamily = robotoFontFamily,
+        fontWeight = FontWeight.Normal
+    )
 }
